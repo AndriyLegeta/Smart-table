@@ -1,0 +1,42 @@
+<form #editForm="ngForm"  (ngSubmit)="editEmployee(department.value)">
+  <br>
+  <label>Name:
+
+  <input class="form-control" type="text"
+         required
+         name="name"
+         #name="ngModel"
+         placeholder="Bob"
+         [(ngModel)] = newEmployee.name
+  >
+  </label>
+  <br>
+  <br>
+
+  <label>Active: </label>
+
+  <input  type="checkbox"
+         name="active"
+         #active="ngModel"
+         [(ngModel)] = newEmployee.active
+  >
+
+  <br>
+  <br>
+
+  <label>Department: </label>
+
+  <label>
+    <select class="form-control" size="1" required #department>
+      <option selected value="newEmployee.Department.name">{{newEmployee.Department.name}}</option>
+      <option value="Tech">Tech</option>
+      <option value="HR">HR</option>
+      <option value="Finance">Finance</option>
+      <option value="Security">Security</option>
+    </select>
+  </label>
+  <br>
+  <button class="btn btn-primary" [disabled]="editForm.invalid">Edit</button>
+  <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+
+</form>

@@ -1,0 +1,42 @@
+<form  #createForm="ngForm"  (ngSubmit)="addEmployee(createForm.value, department.value)">
+  <div class="form-group">
+  <label>Name:
+  <input type="text"
+         required
+         name="name"
+         #name = "ngModel"
+         ngModel
+         placeholder="Bob"
+         class="form-control"
+  >
+  </label>
+    <br>
+    <br>
+  <label>Active:
+  <input type="checkbox"
+         name="active"
+         #active = "ngModel"
+         ngModel
+         class="form-check-input"
+  >
+  </label>
+  <br>
+  <br>
+
+  <label >Department: </label>
+
+    <label>
+    <select class="form-control" size="1" required #department>
+      <option disabled>choose</option>
+      <option value="Tech">Tech</option>
+      <option value="HR">HR</option>
+      <option value="Finance">Finance</option>
+      <option value="Security">Security</option>
+    </select>
+    </label>
+  </div>
+  <br>
+  <button class=" btn  btn-success" [disabled]="createForm.invalid">Add</button>
+  <button class=" btn btn-danger" (click)="cancel()">Cancel</button>
+
+</form>
